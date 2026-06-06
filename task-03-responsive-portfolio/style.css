@@ -1,0 +1,154 @@
+/* --- PREMIUM MODERN DARK THEME VARIABLES --- */
+:root {
+    --bg-main: #0a0d14;          /* Deep rich tech black */
+    --bg-card: #111622;          /* Clean solid dark card layout */
+    --accent-glow: #4f46e5;      /* Striking indigo base */
+    --accent-glow-light: #6366f1;/* Vibrant indigo accent */
+    --accent-emerald: #10b981;   /* Emerald green for active timelines */
+    --text-pure: #ffffff;
+    --text-paragraph: #94a3b8;   /* Clean slate grey for ultimate readability */
+    --border-line: rgba(255, 255, 255, 0.06);
+    --card-hover-border: rgba(99, 102, 241, 0.25);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- GLOBAL RESET & SMOOTH SCROLLING --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-pure);
+    line-height: 1.7;
+    padding-top: 80px; /* Space for fixed navbar */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- REFINED NAV BAR (Flexbox Layout) --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: rgba(10, 13, 20, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    border-bottom: 1px solid var(--border-line);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+nav .logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-glow-light);
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: var(--text-paragraph);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+nav ul li a:hover {
+    color: var(--text-pure);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+}
+
+/* --- HERO HEADING SECTION --- */
+header {
+    background: radial-gradient(circle at top, rgba(79, 70, 229, 0.12), transparent 60%);
+    padding: 90px 20px 50px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--accent-glow-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* --- MAIN CONTAINER LAYOUT --- */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* --- SOLID PREMIUM DARK CARDS --- */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-line);
+    border-radius: 14px;
+    padding: 35px 40px;
+    transition: var(--transition-smooth);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-hover-border);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--text-pure);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border-line), transparent);
+    margin-left: 15px;
+}
+
+p {
+    color: var(--text-paragraph);
+    font-size: 1.05rem;
+}
+
+/* --- EDUCATION TIMELINE COMPONENT --- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.timeline-
