@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6 | To-Do List App (LocalStorage)</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">&lt;ZG /&gt;</div>
+        <a href="../task-03-responsive-portfolio/index.html" class="back-btn">&larr; Back to Portfolio</a>
+    </nav>
+
+    <main class="todo-container">
+        <div class="card">
+            <h2>Workspace Tasks</h2>
+            <p class="subtitle">Manage your daily objectives. Data persists automatically via LocalStorage.</p>
+            
+            <form id="todoForm" class="todo-input-group">
+                <input type="text" id="taskInput" placeholder="Add a new assignment..." autocomplete="off">
+                <button type="submit" id="addTaskBtn">Add Task</button>
+            </form>
+
+            <span class="error-message" id="todoError"></span>
+
+            <ul id="taskList" class="task-list">
+                </ul>
+
+            <div id="emptyState" class="empty-state">
+                <p>No tasks remaining. Add some to get started!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Zaryab Ghumman. Task 6 - LocalStorage Persistence Practice.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
