@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7 | API Integration - Users List App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">&lt;ZG /&gt;</div>
+        <a href="../task-03-responsive-portfolio/index.html" class="back-btn">&larr; Back to Portfolio</a>
+    </nav>
+
+    <main class="app-container">
+        <header class="app-header">
+            <h2>Team Directory</h2>
+            <p class="subtitle">Live data synchronized from JSONPlaceholder API infrastructure.</p>
+            
+            <div class="search-box-wrapper">
+                <input type="text" id="searchInput" placeholder="Search team members by name..." autocomplete="off">
+            </div>
+        </header>
+
+        <div id="loadingState" class="status-overlay">
+            <div class="spinner"></div>
+            <p>Fetching secure database records...</p>
+        </div>
+
+        <div id="errorState" class="status-overlay error-layout hidden">
+            <p id="errorMessage">Failed to establish connection with remote API gateway.</p>
+            <button id="retryBtn">Retry Connection</button>
+        </div>
+
+        <div id="usersGrid" class="users-grid hidden">
+            </div>
+
+        <div id="emptySearchState" class="status-overlay hidden">
+            <p>No directory records match your search criteria.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Zaryab Ghumman. Task 7 - Async API Data Streaming Practice.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
