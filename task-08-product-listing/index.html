@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8 | Product Listing Page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">&lt;ZG /&gt;</div>
+        <a href="../task-03-responsive-portfolio/index.html" class="back-btn">&larr; Back to Portfolio</a>
+    </nav>
+
+    <main class="store-container">
+        <header class="store-header">
+            <h2>Developer Tech Emporium</h2>
+            <p class="subtitle">Premium hardware workstation components curated for elite software development execution.</p>
+            
+            <div class="controls-toolbar">
+                <input type="text" id="productSearch" placeholder="Search products by title..." autocomplete="off">
+                
+                <div class="filter-group">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="Peripherals">Peripherals</option>
+                        <option value="Components">Components</option>
+                        <option value="Audio">Audio</option>
+                    </select>
+
+                    <select id="priceSort">
+                        <option value="default">Sort by Price</option>
+                        <option value="lowToHigh">Price: Low to High</option>
+                        <option value="highToLow">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <div id="productsGrid" class="products-grid">
+            </div>
+
+        <div id="noProductsState" class="empty-state hidden">
+            <p>No production products match your current filtering matrix.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Zaryab Ghumman. Task 8 - Array Mapping and Dynamic Sorting Practice.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
