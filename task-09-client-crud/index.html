@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9 | Client Management CRUD System</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">&lt;ZG /&gt;</div>
+        <a href="../task-03-responsive-portfolio/index.html" class="back-btn">&larr; Back to Portfolio</a>
+    </nav>
+
+    <main class="dashboard-container">
+        <header class="dashboard-header">
+            <div>
+                <h2>Client Management Gateway</h2>
+                <p class="subtitle">Execute operational CRUD strategies, track structural pipelines, and manage corporate accounts.</p>
+            </div>
+            <button id="openAddModalBtn" class="primary-btn">+ Register New Client</button>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <span class="metric-label">Total Pipeline Accounts</span>
+                <span class="metric-value" id="countTotal">0</span>
+            </div>
+            <div class="metric-card border-pending">
+                <span class="metric-label">Pending Reviews</span>
+                <span class="metric-value text-pending" id="countPending">0</span>
+            </div>
+            <div class="metric-card border-progress">
+                <span class="metric-label">Active Deployments</span>
+                <span class="metric-value text-progress" id="countProgress">0</span>
+            </div>
+            <div class="metric-card border-completed">
+                <span class="metric-label">Concluded Projects</span>
+                <span class="metric-value text-completed" id="countCompleted">0</span>
+            </div>
+        </section>
+
+        <section class="toolbar-card">
+            <div class="search-box-wrapper">
+                <input type="text" id="crudSearch" placeholder="Search clients by system name or corporate company name..." autocomplete="off">
+            </div>
+            <div class="filter-box-wrapper">
+                <select id="statusFilter">
+                    <option value="all">All Operational Statuses</option>
+                    <option value="Pending">Pending Only</option>
+                    <option value="In Progress">In Progress Only</option>
+                    <option value="Completed">Completed Only</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="table-responsive-wrapper">
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>Client Details</th>
+                        <th>Corporate Company</th>
+                        <th>Project Focus</th>
+                        <th>Status Control</th>
+                        <th style="text-align: right;">System Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="clientTableBody">
+                    </tbody>
+            </table>
+
+            <div id="crudEmptyState" class="empty-state hidden">
+                <p>No managed system accounts match your active search filtering matrix.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="crudModalOverlay" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button id="closeModalBtn" class="close-modal-btn">&times;</button>
+            <h3 id="modalTitle">Register System Account</h3>
+            <p class="modal-subtitle">Ensure account parameter tracking values match client documentation rules perfectly.</p>
+            
+            <form id="clientForm" novalidate>
+                <input type="hidden" id="editRecordIndex" value="">
+
+                <div class="form-group">
+                    <label for="clientName">Client Full Name</label>
+                    <input type="text" id="clientName" placeholder="e.g., Abdul Muqtadar" required>
+                </div>
+
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="clientEmail">Corporate Email</label>
+                        <input type="email" id="clientEmail" placeholder="name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Contact Number</label>
+                        <input type="tel" id="clientPhone" placeholder="e.g., 03001234567" required>
+                    </div>
+                </div>
+
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="companyName">Company Enterprise Name</label>
+                        <input type="text" id="companyName" placeholder="e.g., PRIMXACT IT Consultants" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectType">Project Core Domain</label>
+                        <input type="text" id="projectType" placeholder="e.g., Real-time Flutter App / SQL Schema" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientStatus">Initial Project Status Pipeline</label>
+                    <select id="clientStatus">
+                        <option value="Pending">Pending Review</option>
+                        <option value="In Progress">In Progress / Active Development</option>
+                        <option value="Completed">Completed / Production Ready</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submitFormBtn" class="execute-btn">Save Client Record</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Zaryab Ghumman. Task 9 - LocalStorage Driven Relational CRUD Application.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
