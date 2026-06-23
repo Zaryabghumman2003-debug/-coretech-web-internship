@@ -1,0 +1,164 @@
+/* ==========================================================================
+   1. BRAND NEW SLATE STEEL & NEON VIOLET PALETTE VARIABLES
+   ========================================================================== */
+:root {
+    --bg-slate-deep: #0f111a;       /* Titanium Slate Core Steel */
+    --bg-slate-card: #171926;       /* Clean structured card background */
+    --accent-violet: #8b5cf6;       /* Bright Neon Violet Accent */
+    --accent-violet-dark: #6d28d9;  /* Darker tone for micro-states */
+    --accent-cyan: #06b6d4;         /* Electric cyan border highlights */
+    --accent-emerald: #10b981;     /* Success valid indicators */
+    --accent-crimson: #f43f5e;     /* Error fields warning tags */
+    
+    --text-pure: #ffffff;
+    --text-body: #94a3b8;           /* Desaturated steel gray text */
+    --border-glow: rgba(255, 255, 255, 0.04);
+    --transition-premium: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   2. GLOBAL SETUP RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-slate-deep);
+    color: var(--text-pure);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-workspace {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 60px 24px;
+}
+
+.content-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. MULTI-PAGE ADVANCED STICKY NAVIGATION CONTROLLER
+   ========================================================================== */
+.main-navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 80px;
+    background-color: rgba(15, 17, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glow);
+    display: flex; align-items: center; z-index: 2000;
+}
+
+.nav-container {
+    width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.brand-logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.5px; text-decoration: none; color: var(--text-pure); }
+.brand-logo span { color: var(--accent-violet); }
+
+.nav-links-menu { display: flex; align-items: center; gap: 35px; }
+.nav-link {
+    color: var(--text-body); text-decoration: none; font-size: 0.95rem; font-weight: 600;
+    transition: var(--transition-premium); position: relative; padding: 6px 0;
+}
+.nav-link:hover, .nav-link.active { color: var(--text-pure); }
+
+.nav-link::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+    background-color: var(--accent-violet); transition: var(--transition-premium);
+}
+.nav-link.active::after { width: 100%; }
+
+.nav-cta-btn {
+    background-color: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2);
+    padding: 8px 18px; border-radius: 6px; color: var(--accent-violet);
+}
+.nav-cta-btn::after { display: none !important; }
+.nav-cta-btn:hover { background-color: var(--accent-violet); color: var(--text-pure); }
+
+/* Hamburger Menu Icon style */
+.mobile-toggle { display: none; }
+
+/* ==========================================================================
+   4. LAYOUT BLOCKS & SECTIONS SCHEMAS
+   ========================================================================== */
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+.promo-badge {
+    display: inline-block; background-color: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.15); color: var(--accent-violet);
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px;
+}
+h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 20px; }
+h1 span { background: linear-gradient(to right, #ffffff, var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-p { font-size: 1.1rem; color: var(--text-body); margin-bottom: 35px; max-width: 580px; }
+
+.btn-row { display: flex; gap: 16px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border-radius: 8px; transition: var(--transition-premium); }
+.btn-primary { background-color: var(--accent-violet); color: var(--text-pure); }
+.btn-primary:hover { background-color: var(--accent-violet-dark); transform: translateY(-1px); }
+.btn-secondary { background-color: transparent; color: var(--text-pure); border: 1px solid var(--border-glow); }
+.btn-secondary:hover { background-color: rgba(255, 255, 255, 0.02); }
+
+/* Custom Terminal mockup block */
+.terminal-frame { background-color: #090a10; border: 1px solid var(--border-glow); border-radius: 12px; padding: 25px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); font-family: monospace; }
+.window-dots { display: flex; gap: 6px; margin-bottom: 15px; }
+.window-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.d-red { background-color: #f43f5e; } .d-yellow { background-color: #f59e0b; } .d-green { background-color: #10b981; }
+
+/* Subpages Headers styling */
+.page-header { text-align: center; max-width: 700px; margin: 0 auto 50px auto; }
+.page-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+.page-header p { color: var(--text-body); font-size: 1.05rem; }
+
+/* Cards & Grid configurations */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+.custom-card { background-color: var(--bg-slate-card); border: 1px solid var(--border-glow); border-radius: 14px; padding: 35px; transition: var(--transition-premium); }
+.custom-card:hover { border-color: rgba(139, 92, 246, 0.25); transform: translateY(-4px); }
+.card-icon { font-size: 2rem; margin-bottom: 15px; }
+.custom-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.custom-card p { color: var(--text-body); font-size: 0.95rem; }
+
+/* Contact Forms Section */
+.contact-block-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 50px; background-color: var(--bg-slate-card); border: 1px solid var(--border-glow); border-radius: 16px; padding: 50px; }
+.info-col h3 { font-size: 1.8rem; margin-bottom: 15px; }
+.info-col p { color: var(--text-body); margin-bottom: 35px; }
+.meta-item { font-size: 0.95rem; margin-bottom: 10px; color: var(--text-pure); }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 0.85rem; font-weight: 600; }
+.form-group input, .form-group textarea, .form-group select { background-color: var(--bg-slate-deep); border: 1px solid var(--border-glow); border-radius: 8px; padding: 12px 16px; color: var(--text-pure); font-size: 0.95rem; outline: none; transition: var(--transition-premium); }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent-violet); }
+
+.form-group input.field-error, .form-group textarea.field-error { border-color: var(--accent-crimson) !important; }
+.field-error-lbl { color: var(--accent-crimson); font-size: 0.78rem; min-height: 16px; display: block; }
+.form-alert { padding: 14px 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; margin-bottom: 20px; }
+.success-banner { background-color: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
+
+.submit-btn { width: 100%; background-color: var(--accent-violet); color: var(--text-pure); border: none; border-radius: 8px; padding: 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: var(--transition-premium); }
+.submit-btn:hover { background-color: var(--accent-violet-dark); }
+
+/* ==========================================================================
+   5. BASELINE CORPORATE FOOTER BLOCK
+   ========================================================================== */
+.baseline-footer { background-color: #0a0b12; border-top: 1px solid var(--border-glow); padding: 30px 0; text-align: center; color: #4b5563; font-size: 0.85rem; }
+
+/* Responsive adjustments */
+@media (max-width: 990px) {
+    .hero-grid, .contact-block-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-block-grid { padding: 30px; }
+}

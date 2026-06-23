@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreTech Systems | Consultation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header class="main-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">CoreTech<span>.</span></a>
+            <nav class="nav-links-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="work.html" class="nav-link">Work</a>
+                <a href="reviews.html" class="nav-link">Reviews</a>
+                <a href="contact.html" class="nav-link nav-cta-btn active">Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-workspace">
+        <div class="content-container contact-block-grid">
+            <div class="info-col">
+                <span class="promo-badge">Secure Gateway Link</span>
+                <h3>Initiate System Review</h3>
+                <p>Connect with an automated agent. Input profiles are tracked and encrypted inside secure data channels real-time.</p>
+                <div class="meta-item">📍 Headquarters: Tech Hub, Karachi, Pakistan</div>
+                <div class="meta-item">📧 Secure Pipeline: gateway@coretech.sys</div>
+            </div>
+
+            <div class="form-col">
+                <div id="contactSuccessAlert" class="form-alert success-banner hidden"></div>
+                <form id="landingContactForm" novalidate>
+                    <div class="form-group">
+                        <label for="inputName">Full Name</label>
+                        <input type="text" id="inputName" placeholder="e.g., Abdul Muqtadar">
+                        <span class="field-error-lbl" id="errorName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Corporate Email</label>
+                        <input type="email" id="inputEmail" placeholder="name@company.com">
+                        <span class="field-error-lbl" id="errorEmail"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMessage">Project Scope Specification (Min 20 chars)</label>
+                        <textarea id="inputMessage" rows="4" placeholder="Enter architectural boundaries..."></textarea>
+                        <span class="field-error-lbl" id="errorMessage"></span>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Deploy Configuration Request</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="baseline-footer">
+        <p>&copy; 2026 CoreTech Systems Inc. Maintained by Zaryab Ghumman.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
