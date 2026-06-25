@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoShop | Premium Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Eco<span>Shop</span></a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="active">Home</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+                <a href="login.html" class="nav-login-btn"><i class="fas fa-user"></i> Login</a>
+            </nav>
+            <div class="nav-icons">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Upgrade Your Lifestyle</h1>
+            <p>Discover handpicked premium products with exclusive deals.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="products" class="products-section container">
+        <div class="section-header">
+            <h2>Our Featured Products</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Join Our Newsletter</h2>
+                <p>Subscribe to get updates on new products and special offers.</p>
+            </div>
+            <div class="contact-form-container">
+                <form id="newsletterForm" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <span class="error-msg" id="nameError">Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email Address" required>
+                        <span class="error-msg" id="emailError">Please enter a valid email</span>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Subscribe</button>
+                </form>
+                <div id="successMessage" class="success-toast">🎉 Thank you for subscribing!</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 EcoShop. Built with ❤️ using HTML, CSS, & JS.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
