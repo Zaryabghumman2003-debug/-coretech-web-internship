@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopWave – Pakistan's Online Store</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/home.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>🚚 Free delivery on orders over Rs. 999</span>
+  <span>📞 Helpline: 0800-00000</span>
+  <span>🌐 Pakistan's #1 Online Store</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="index.html" class="logo">Shop<span>Wave</span></a>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+
+  <div class="search-bar">
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home & Living</option>
+      <option value="beauty">Beauty</option>
+      <option value="sports">Sports</option>
+      <option value="books">Books</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="Search products, brands..."/>
+    <button id="searchBtn"><i class="fas fa-search"></i></button>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-icon" id="accountToggle">
+      <i class="fas fa-user"></i>
+      <span id="navUserName">Account</span>
+      <div class="dropdown" id="accountDropdown">
+        <a href="pages/login.html" id="loginLink"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="pages/register.html" id="registerLink"><i class="fas fa-user-plus"></i> Register</a>
+        <a href="#" id="logoutLink" style="display:none" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="pages/orders.html"><i class="fas fa-box"></i> My Orders</a>
+        <a href="pages/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+      </div>
+    </div>
+    <div class="nav-icon" onclick="window.location.href='pages/cart.html'">
+      <i class="fas fa-shopping-cart"></i>
+      <span>Cart</span>
+      <span class="badge" id="cartBadge">0</span>
+    </div>
+    <div class="nav-icon" onclick="window.location.href='pages/wishlist.html'">
+      <i class="fas fa-heart"></i>
+      <span>Wishlist</span>
+      <span class="badge" id="wishBadge">0</span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="pages/login.html">Login</a>
+  <a href="pages/register.html">Register</a>
+  <a href="pages/cart.html">Cart</a>
+  <a href="pages/wishlist.html">Wishlist</a>
+  <a href="pages/orders.html">Orders</a>
+</div>
+
+<!-- HERO BANNER -->
+<section class="hero">
+  <div class="hero-slider" id="heroSlider">
+    <div class="slide active" style="background: linear-gradient(135deg,#ff6b35,#f7c59f)">
+      <div class="slide-content">
+        <h1>Mega Sale is Live! 🔥</h1>
+        <p>Up to 70% OFF on Electronics, Fashion & More</p>
+        <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+      </div>
+      <div class="slide-img">🛒</div>
+    </div>
+    <div class="slide" style="background: linear-gradient(135deg,#11998e,#38ef7d)">
+      <div class="slide-content">
+        <h1>New Arrivals Every Day 📦</h1>
+        <p>Discover the latest trends in fashion & tech</p>
+        <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore</button>
+      </div>
+      <div class="slide-img">🎁</div>
+    </div>
+    <div class="slide" style="background: linear-gradient(135deg,#6a11cb,#2575fc)">
+      <div class="slide-content">
+        <h1>Flash Deals ⚡ Today Only</h1>
+        <p>Limited time offers on top brands</p>
+        <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Grab Deal</button>
+      </div>
+      <div class="slide-img">⚡</div>
+    </div>
+  </div>
+  <button class="slider-btn prev" id="prevSlide">&#10094;</button>
+  <button class="slider-btn next" id="nextSlide">&#10095;</button>
+  <div class="dots" id="sliderDots"></div>
+</section>
+
+<!-- CATEGORY ICONS -->
+<section class="categories-section">
+  <h2>Shop by Category</h2>
+  <div class="cat-grid">
+    <div class="cat-card" onclick="filterByCategory('electronics')">
+      <span class="cat-icon">📱</span><p>Electronics</p>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('fashion')">
+      <span class="cat-icon">👗</span><p>Fashion</p>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('home')">
+      <span class="cat-icon">🏠</span><p>Home & Living</p>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('beauty')">
+      <span class="cat-icon">💄</span><p>Beauty</p>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('sports')">
+      <span class="cat-icon">⚽</span><p>Sports</p>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('books')">
+      <span class="cat-icon">📚</span><p>Books</p>
+    </div>
+    <div class="cat-card" onclick="filterByCategory('all')">
+      <span class="cat-icon">🛍️</span><p>All Items</p>
+    </div>
+  </div>
+</section>
+
+<!-- FLASH DEALS TIMER -->
+<section class="flash-section">
+  <div class="flash-header">
+    <h2>⚡ Flash Deals</h2>
+    <div class="countdown" id="countdown">
+      <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+      <div class="time-box"><span id="minutes">00</span><small>Mins</small></div>
+      <div class="time-box"><span id="seconds">00</span><small>Secs</small></div>
+    </div>
+  </div>
+  <div class="flash-products" id="flashProducts"></div>
+</section>
+
+<!-- FILTER BAR -->
+<section class="filter-bar">
+  <div class="filter-left">
+    <button class="filter-btn active" onclick="filterByCategory('all',this)">All</button>
+    <button class="filter-btn" onclick="filterByCategory('electronics',this)">Electronics</button>
+    <button class="filter-btn" onclick="filterByCategory('fashion',this)">Fashion</button>
+    <button class="filter-btn" onclick="filterByCategory('home',this)">Home</button>
+    <button class="filter-btn" onclick="filterByCategory('beauty',this)">Beauty</button>
+    <button class="filter-btn" onclick="filterByCategory('sports',this)">Sports</button>
+    <button class="filter-btn" onclick="filterByCategory('books',this)">Books</button>
+  </div>
+  <div class="filter-right">
+    <select id="sortSelect" onchange="sortProducts()">
+      <option value="default">Sort By</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="rating">Top Rated</option>
+      <option value="newest">Newest</option>
+    </select>
+    <select id="priceRange" onchange="applyPriceFilter()">
+      <option value="all">All Prices</option>
+      <option value="0-1000">Under Rs. 1,000</option>
+      <option value="1000-5000">Rs. 1,000 – 5,000</option>
+      <option value="5000-20000">Rs. 5,000 – 20,000</option>
+      <option value="20000-999999">Above Rs. 20,000</option>
+    </select>
+  </div>
+</section>
+
+<!-- PRODUCTS GRID -->
+<section class="products-section" id="products">
+  <h2 id="sectionTitle">All Products</h2>
+  <div class="product-grid" id="productGrid"></div>
+  <div class="no-results" id="noResults" style="display:none">
+    <p>😕 No products found. Try a different search or category.</p>
+  </div>
+  <div class="load-more-wrap">
+    <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">Load More Products</button>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>📧 Stay in the Loop!</h2>
+    <p>Subscribe for exclusive deals, new arrivals & offers</p>
+    <form class="nl-form" onsubmit="subscribeNewsletter(event)">
+      <input type="email" placeholder="Enter your email address" required/>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>ShopWave</h3>
+      <p>Pakistan's fastest-growing online marketplace. Quality products, unbeatable prices.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/cart.html">Cart</a></li>
+        <li><a href="pages/orders.html">My Orders</a></li>
+        <li><a href="pages/wishlist.html">Wishlist</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Customer Service</h3>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Download App</h3>
+      <p>Shop on the go!</p>
+      <div class="app-badges">
+        <span class="app-badge">📱 Google Play</span>
+        <span class="app-badge">🍎 App Store</span>
+      </div>
+      <h3 style="margin-top:1rem">Payment Methods</h3>
+      <div class="payment-icons">💳 Visa &nbsp; 💳 MC &nbsp; 🏦 JazzCash &nbsp; 📲 EasyPaisa</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ShopWave. All rights reserved. | Made with ❤️ in Pakistan</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="quick-view-modal" id="quickViewModal">
+  <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

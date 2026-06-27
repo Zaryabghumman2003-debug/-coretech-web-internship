@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wishlist – ShopWave</title>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<div class="topbar"><span>🚚 Free delivery on orders over Rs. 999</span></div>
+<nav class="navbar">
+  <div class="nav-left"><a href="../index.html" class="logo">Shop<span>Wave</span></a></div>
+  <div class="nav-right">
+    <div class="nav-icon" onclick="window.location.href='cart.html'">
+      <i class="fas fa-shopping-cart"></i><span>Cart</span>
+      <span class="badge" id="cartBadge">0</span>
+    </div>
+    <div class="nav-icon"><i class="fas fa-heart"></i><span>Wishlist</span><span class="badge" id="wishBadge">0</span></div>
+  </div>
+</nav>
+
+<div class="page-container">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Wishlist</div>
+  <h1 class="page-title">❤️ My Wishlist</h1>
+  <div class="product-grid" id="wishlistGrid"></div>
+  <div id="emptyWish" style="display:none;text-align:center;padding:4rem">
+    <p style="font-size:4rem">💔</p>
+    <h2>Your wishlist is empty</h2>
+    <p>Save items you love by clicking the ❤️ on any product.</p>
+    <a href="../index.html" class="auth-btn" style="display:inline-block;text-decoration:none;margin-top:1rem">Browse Products</a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="../js/products.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  updateBadges();
+  const wishlist = JSON.parse(localStorage.getItem('sw_wishlist') || '[]');
+  const grid = document.getElementById('wishlistGrid');
+  if (wishlist.length === 0) {
+    document.getElementById('emptyWish').style.display = 'block';
+    return;
+  }
+  const items = products.filter(p => wishlist.includes(p.id));
+  grid.innerHTML = items.map(p => createProductCard(p)).join('');
+});
+</script>
+</body>
+</html>

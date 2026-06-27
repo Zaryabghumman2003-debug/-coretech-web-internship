@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders – ShopWave</title>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<div class="topbar"><span>🚚 Free delivery on orders over Rs. 999</span></div>
+<nav class="navbar">
+  <div class="nav-left"><a href="../index.html" class="logo">Shop<span>Wave</span></a></div>
+  <div class="nav-right">
+    <div class="nav-icon" onclick="window.location.href='cart.html'">
+      <i class="fas fa-shopping-cart"></i><span>Cart</span>
+      <span class="badge" id="cartBadge">0</span>
+    </div>
+  </div>
+</nav>
+
+<div class="page-container">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › My Orders</div>
+  <h1 class="page-title">📦 My Orders</h1>
+  <div id="ordersContainer"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="../js/products.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  updateBadges();
+  const orders = JSON.parse(localStorage.getItem('sw_orders') || '[]');
+  const container = document.getElementById('ordersContainer');
+  if (orders.length === 0) {
+    container.innerHTML = `<div style="text-align:center;padding:4rem">
+      <p style="font-size:4rem">📭</p>
+      <h2>No orders yet</h2>
+      <p>Your orders will appear here once you make a purchase.</p>
+      <a href="../index.html" style="display:inline-block;margin-top:1rem;padding:0.8rem 2rem;background:var(--primary);color:white;border-radius:8px;text-decoration:none">Start Shopping</a>
+    </div>`;
+    return;
+  }
+  container.innerHTML = orders.reverse().map(order => `
+    <div style="background:white;border-radius:12px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <div>
+          <strong>Order #${order.id}</strong>
+          <span style="margin-left:1rem;font-size:0.85rem;color:#666">${new Date(order.date).toLocaleDateString()}</span>
+        </div>
+        <span style="padding:0.3rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600;background:${order.status==='Delivered'?'#c6f6d5':order.status==='Shipped'?'#bee3f8':'#fef3c7'};color:${order.status==='Delivered'?'#276749':order.status==='Shipped'?'#2b6cb0':'#92400e'}">
+          ${order.status}
+        </span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem">
+        ${order.items.map(item => `<span style="background:#f7f7f7;padding:0.3rem 0.8rem;border-radius:20px;font-size:0.85rem">${item.name} × ${item.qty}</span>`).join('')}
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong style="color:var(--primary)">Rs. ${order.total.toLocaleString()}</strong>
+        <button onclick="showToast('📦 Tracking feature coming soon!','info')" style="padding:0.4rem 1rem;border:1px solid var(--primary);color:var(--primary);background:transparent;border-radius:6px;cursor:pointer">Track Order</button>
+      </div>
+    </div>
+  `).join('');
+});
+</script>
+</body>
+</html>

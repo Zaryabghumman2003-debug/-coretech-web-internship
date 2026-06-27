@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart – ShopWave</title>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/cart.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <span>🚚 Free delivery on orders over Rs. 999</span>
+  <span>📞 Helpline: 0800-00000</span>
+</div>
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="../index.html" class="logo">Shop<span>Wave</span></a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-icon" onclick="window.location.href='cart.html'">
+      <i class="fas fa-shopping-cart"></i><span>Cart</span>
+      <span class="badge" id="cartBadge">0</span>
+    </div>
+    <div class="nav-icon" onclick="window.location.href='wishlist.html'">
+      <i class="fas fa-heart"></i><span>Wishlist</span>
+    </div>
+  </div>
+</nav>
+
+<div class="page-container">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › Cart</div>
+
+  <div class="cart-layout" id="cartLayout">
+    <!-- Filled by JS -->
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<footer class="footer-mini">
+  <p>&copy; 2026 ShopWave – <a href="../index.html">Continue Shopping</a></p>
+</footer>
+
+<script src="../js/products.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', renderCartPage);
+</script>
+</body>
+</html>
